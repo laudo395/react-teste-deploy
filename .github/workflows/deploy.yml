@@ -17,18 +17,15 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
+        path: dist
     - run: yarn install
     - run: yarn build
   
-    - uses: appleboy/ssh-action@v0.1.2
+    - uses: garygrossgarten/github-action-scp@release
       with:
+        local: my-repo
+        remote: /var/tmp
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         port: 22
-     
-        script: |
-
-          cd /var/tmp
-
-
