@@ -27,5 +27,5 @@ jobs:
         remote: /var/tmp
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
+        privateKey: ${{ secrets.SSH_KEY }}
         port: 22
